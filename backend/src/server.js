@@ -1,8 +1,11 @@
 import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+
+
+import rateLimiter from "../middleware/ratelimiter.js";
 import notesRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "../config/db.js";
-import dotenv from "dotenv";
-import rateLimiter from "../middleware/ratelimiter.js";
 
 dotenv.config();
 
@@ -13,6 +16,7 @@ connectDB();
 
 // middleware
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
+app.use(cors());
 app.use(rateLimiter);
 
 //custom middleware

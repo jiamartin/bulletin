@@ -1,6 +1,6 @@
 const NoteDetailPage = () => {
   return (
-    <div>NoteDetailPage</div>
+    <div className="min-h-screen">NoteDetailPage</div>
   )
 }
 
